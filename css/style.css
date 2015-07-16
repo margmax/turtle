@@ -64,5 +64,7 @@ canvas {
     font-size: x-large;
     color:white;
 }
+input[type="number"]{
 
+}
 

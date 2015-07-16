@@ -16,16 +16,28 @@
     <div class="row">
         <div class=" col col-lg-7 turt"  >
             <samp class="turtlefield">
-                    <canvas class="turtle" id="turtle"></canvas>
+                <samp id="field">
+                    <canvas width="40" height="48" class="turtle" id="turtle" style="opacity: 0.67; width: 20px; height: 24px; display: table; transform: none; z-index: 1;">
+                    </canvas>
+                </samp>
             </samp>
         </div>
 
         <div class="col col-lg-2" id="commands" >
             <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
-                Перетащи меня
+                Поднять хвост.
             </div>
             <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
-                Перетащи меня2
+                Опустить хвост.
+            </div>
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+                Повернуться на <input type="number" class="form-control"/> градусов.
+            </div>
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+                Двигаться на <input type="number" class="form-control"/> шагов.
+            </div>
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+                Повторить <input type="number" class="form-control"/> раз.
             </div>
         </div>
 
