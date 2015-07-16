@@ -23,25 +23,25 @@
         </div>
 
         <div class="col col-lg-2" id="commands" >
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands up" data-command="up">
                 Поднять хвост.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands down" data-command="down">
                 Опустить хвост.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands rotate" data-command="rotate">
                 Повернуться на <input type="number" class="form-control"/> градусов.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands move" data-command="move">
                 Двигаться на <input type="number" class="form-control"/> шагов.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeat" data-command="repeat">
                 Повторить <input type="number" class="form-control"/> раз.
             </div>
             <div >
-                <img class="icon" src="img/play.png" style="width: 30px; height: 30px;"/>
-                <img class="icon" src="img/pause.png"/>
-                <img class="icon" src="img/stop.png"/>
+                <img class="icon play" src="img/play.png" style="width: 30px; height: 30px;"/>
+                <img class="icon pause" src="img/pause.png"/>
+                <img class="icon stop" src="img/stop.png"/>
             </div>
         </div>
 
@@ -79,8 +79,46 @@
             revert: 'invalid'
         });
         $("ul, li").disableSelection();
+
+        $(".play").on('click',function(){
+            $('#sortable>.commands').each(function(){
+                var com=$(this).data("command");
+                if(com=='up'){
+                    $('#turtle').pen('null');
+                    console.log("1");
+                    $('#turtle').delay( 100000 );
+                }
+                if(com=='down'){
+                    $('#turtle').pen('blue');
+                    console.log("/2");
+                }
+                if(com=='rotate'){
+                    $('#turtle').rt($(this).context.firstElementChild.valueAsNumber);
+                    console.log("3");
+                }
+                if(com=='move'){
+                    $('#turtle').fd($(this).context.firstElementChild.valueAsNumber);
+                    console.log("4");
+                }
+                if(com=='repeat'){
+
+                }
+            })
+        });
+
+        $(".pause").on('click',function(){
+
+        });
+
+        $(".stop").on('click',function(){
+            cg();
+            home();
+            $('#sortable>.commands').remove();
+            });
+
     });
 </script>
+
 <script type="text/javascript">
 eval($.turtle());
     $('#turtle').pen('red lineWidth 5 lineCap square').rt(90).fd(100).rt(90).fd(100);
