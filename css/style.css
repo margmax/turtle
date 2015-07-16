@@ -69,3 +69,6 @@ canvas {
     height: 45px;
     opacity: 0.5;
 }
+#_testpanel{
+    display: none;
+}
