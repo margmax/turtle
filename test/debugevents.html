@@ -1,0 +1,81 @@
+<script src="lib/qunit.js"></script>
+<link href="lib/qunit.css" rel="stylesheet">
+<script src="lib/jquery.js"></script>
+<body>
+<div id="qunit"></div>
+<iframe id="subframe" width="800" height="800"></iframe>
+<xmp>
+<body>
+<script src="lib/jquery.js"></script>
+<script src="../jquery-turtle.js"></script>
+<script>
+eval($.turtle());
+speed(20);
+pen(red);
+fd(100);
+rt(88);
+fd(200);
+rt(50);
+</script>
+</xmp>
+<script>
+module("Debug event test.");
+asyncTest("Runs code in a subframe, listening for debug events.",
+function() {
+
+var counter = 0;
+var expected = [
+  "bindframe",
+  ["enter","speed"],   // Speed happens synchronously
+  ["appear","speed"],  // so "appear" and "resolve" happen between
+  ["resolve","speed"], // "enter" and "exit".
+  ["exit","speed"],
+  ["enter","pen"],     // The first "pen" starts immeidately, so
+  ["appear","pen"],    // its "appear" happens synchronously.
+  ["exit","pen"],      // But it resolves later.
+  ["enter","fd"],
+  ["exit","fd"],
+  ["enter","rt"],
+  ["exit","rt"],
+  ["enter","fd"],
+  ["exit","fd"],
+  ["enter","rt"],
+  ["exit","rt"],
+  ["resolve","pen"],   // The first "pen resolves here, followed by
+  ["appear","fd"],     // all the remaining queued actions.
+  ["resolve","fd"],
+  ["appear","rt"],
+  ["resolve","rt"],
+  ["appear","fd"],
+  ["resolve","fd"],
+  ["appear","rt"],
+  ["resolve","rt"]
+];
+
+function verify(data) {
+  var expecting = expected.shift();
+  deepEqual(expecting, data);
+  if (!expected.length) {
+    delete window.ide;
+    start()
+  }
+}
+
+window.ide = {
+  bindframe: function() {
+    verify('bindframe');
+  },
+  reportEvent: function(eventname, args) {
+    verify([eventname, args[0]]);
+  },
+  nextId: function() {
+    return ++counter;
+  }
+};
+
+var subdoc = $('#subframe')[0].contentWindow.document;
+subdoc.open();
+subdoc.write($('xmp').text());
+subdoc.close();
+});
+</script>

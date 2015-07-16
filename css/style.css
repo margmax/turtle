@@ -1,0 +1,66 @@
+.commands{
+    background: #444 !important;
+    border: 1px solid #444 !important;
+    font-size: small !important;
+}
+#commands{
+    background: #555;
+}
+.my-draggable,#sortable {
+    font-size:medium;
+    padding: 10px;
+    text-align: center;
+    margin: 4px;
+}
+#sortable{
+    height: 500px;
+}
+.col{
+    height: 90%;
+    margin: 5px;
+    border-radius:8px !important;
+}
+
+#_turtlefield {
+    display: inline-block;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    font-family: inherit;
+    overflow: hidden;
+}
+
+canvas {
+    z-index: -1;
+    opacity: 0.67;
+    display: table;
+    transform: none;
+}
+
+.turt{
+    background: #999999;
+    border-radius:8px ;
+}
+
+.turtle, #turtle {
+    height: 24px;
+    width: 20px;
+    opacity: 0.5;
+    position: relative;
+    display: inline-block;
+    top: 200px;
+    left: 50%;
+    transform: translate(300px, 169px);
+    background-image: url(../img/img/trutle.gif);
+    background-size: contain;
+}
+.container{
+    border: 1px solid black;
+    background: #666666;
+    text-align: center;
+    font-family: PoiretOneNormal;
+    font-size: x-large;
+    color:white;
+}
+
+

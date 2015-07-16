@@ -1,0 +1,136 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'coffeescript' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'coffeescript', null ]
+7 verbose cache add name=undefined spec="coffeescript" args=["coffeescript",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'coffeescript',
+8 verbose parsed url   path: 'coffeescript',
+8 verbose parsed url   href: 'coffeescript' }
+9 silly lockFile f5fbc02e-coffeescript coffeescript
+10 verbose lock coffeescript C:\Users\Margosha\AppData\Roaming\npm-cache\f5fbc02e-coffeescript.lock
+11 silly lockFile f5fbc02e-coffeescript coffeescript
+12 silly lockFile f5fbc02e-coffeescript coffeescript
+13 verbose addNamed [ 'coffeescript', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 62a8d146-coffeescript coffeescript@
+16 verbose lock coffeescript@ C:\Users\Margosha\AppData\Roaming\npm-cache\62a8d146-coffeescript.lock
+17 silly addNameRange { name: 'coffeescript', range: '*', hasData: false }
+18 verbose request where is /coffeescript
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id a431098932040ffe
+21 verbose url raw /coffeescript
+22 verbose url resolving [ 'https://registry.npmjs.org/', './coffeescript' ]
+23 verbose url resolved https://registry.npmjs.org/coffeescript
+24 verbose request where is https://registry.npmjs.org/coffeescript
+25 info trying registry request attempt 1 at 14:00:31
+26 http GET https://registry.npmjs.org/coffeescript
+27 http 200 https://registry.npmjs.org/coffeescript
+28 silly registry.get cb [ 200,
+28 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly registry.get     etag: '"5NUPLG6Y5EF1A8UGY5M2G8ZDG"',
+28 silly registry.get     'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=60',
+28 silly registry.get     'content-length': '1522',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Thu, 16 Jul 2015 11:00:44 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-lcy1130-LCY',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1437044444.382993,VS0,VE173',
+28 silly registry.get     vary: 'Accept' } ]
+29 silly addNameRange number 2 { name: 'coffeescript', range: '*', hasData: true }
+30 silly addNameRange versions [ 'coffeescript', [ '99.999.9999', '99.999.99999' ] ]
+31 verbose addNamed [ 'coffeescript', '99.999.99999' ]
+32 verbose addNamed [ '99.999.99999', '99.999.99999' ]
+33 silly lockFile 504f0aef-coffeescript-99-999-99999 coffeescript@99.999.99999
+34 verbose lock coffeescript@99.999.99999 C:\Users\Margosha\AppData\Roaming\npm-cache\504f0aef-coffeescript-99-999-99999.lock
+35 warn deprecated coffeescript@99.999.99999: You misspelled 'coffee-script'
+36 silly lockFile 69a21f5c-pt-coffeescript-99-999-99999-tgz https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz
+37 verbose lock https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz C:\Users\Margosha\AppData\Roaming\npm-cache\69a21f5c-pt-coffeescript-99-999-99999-tgz.lock
+38 verbose addRemoteTarball [ 'https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz',
+38 verbose addRemoteTarball   '98f6a60410f827dcb06c067db5539c03c932ad75' ]
+39 info retry fetch attempt 1 at 14:00:31
+40 verbose fetch to= C:\Users\Margosha\AppData\Local\Temp\npm-4312-8wFSoObn\registry.npmjs.org\coffeescript\-\coffeescript-99.999.99999.tgz
+41 http GET https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz
+42 http 200 https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz
+43 silly lockFile 69a21f5c-pt-coffeescript-99-999-99999-tgz https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz
+44 silly lockFile 69a21f5c-pt-coffeescript-99-999-99999-tgz https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz
+45 silly lockFile 504f0aef-coffeescript-99-999-99999 coffeescript@99.999.99999
+46 silly lockFile 504f0aef-coffeescript-99-999-99999 coffeescript@99.999.99999
+47 silly lockFile 62a8d146-coffeescript coffeescript@
+48 silly lockFile 62a8d146-coffeescript coffeescript@
+49 silly resolved [ { name: 'coffeescript',
+49 silly resolved     version: '99.999.99999',
+49 silly resolved     scripts: { preinstall: 'node super-evil-script-omg-for-reals.js' },
+49 silly resolved     _id: 'coffeescript@99.999.99999',
+49 silly resolved     dist:
+49 silly resolved      { shasum: '98f6a60410f827dcb06c067db5539c03c932ad75',
+49 silly resolved        tarball: 'http://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz' },
+49 silly resolved     _from: 'coffeescript@',
+49 silly resolved     _npmVersion: '1.4.4',
+49 silly resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+49 silly resolved     maintainers: [ [Object] ],
+49 silly resolved     deprecated: 'You misspelled \'coffee-script\'',
+49 silly resolved     directories: {},
+49 silly resolved     _shasum: '98f6a60410f827dcb06c067db5539c03c932ad75',
+49 silly resolved     _resolved: 'https://registry.npmjs.org/coffeescript/-/coffeescript-99.999.99999.tgz' } ]
+50 info install coffeescript@99.999.99999 into C:\Users\Margosha\WebstormProjects\turtle
+51 info installOne coffeescript@99.999.99999
+52 verbose node_modules\coffeescript unbuild
+53 verbose tar unpack C:\Users\Margosha\AppData\Roaming\npm-cache\coffeescript\99.999.99999\package.tgz
+54 silly lockFile f86e22d7-turtle-node-modules-coffeescript tar://C:\Users\Margosha\WebstormProjects\turtle\node_modules\coffeescript
+55 verbose lock tar://C:\Users\Margosha\WebstormProjects\turtle\node_modules\coffeescript C:\Users\Margosha\AppData\Roaming\npm-cache\f86e22d7-turtle-node-modules-coffeescript.lock
+56 silly lockFile 76dda454-escript-99-999-99999-package-tgz tar://C:\Users\Margosha\AppData\Roaming\npm-cache\coffeescript\99.999.99999\package.tgz
+57 verbose lock tar://C:\Users\Margosha\AppData\Roaming\npm-cache\coffeescript\99.999.99999\package.tgz C:\Users\Margosha\AppData\Roaming\npm-cache\76dda454-escript-99-999-99999-package-tgz.lock
+58 silly gunzTarPerm modes [ '777', '666' ]
+59 silly gunzTarPerm extractEntry package.json
+60 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+61 silly gunzTarPerm extractEntry super-evil-script-omg-for-reals.js
+62 silly gunzTarPerm modified mode [ 'super-evil-script-omg-for-reals.js', 420, 438 ]
+63 silly lockFile f86e22d7-turtle-node-modules-coffeescript tar://C:\Users\Margosha\WebstormProjects\turtle\node_modules\coffeescript
+64 silly lockFile f86e22d7-turtle-node-modules-coffeescript tar://C:\Users\Margosha\WebstormProjects\turtle\node_modules\coffeescript
+65 silly lockFile 76dda454-escript-99-999-99999-package-tgz tar://C:\Users\Margosha\AppData\Roaming\npm-cache\coffeescript\99.999.99999\package.tgz
+66 silly lockFile 76dda454-escript-99-999-99999-package-tgz tar://C:\Users\Margosha\AppData\Roaming\npm-cache\coffeescript\99.999.99999\package.tgz
+67 info preinstall coffeescript@99.999.99999
+68 verbose unsafe-perm in lifecycle true
+69 info coffeescript@99.999.99999 Failed to exec preinstall script
+70 verbose node_modules\coffeescript unbuild
+71 info preuninstall coffeescript@99.999.99999
+72 info uninstall coffeescript@99.999.99999
+73 verbose true,C:\Users\Margosha\WebstormProjects\turtle\node_modules,C:\Users\Margosha\WebstormProjects\turtle\node_modules unbuild coffeescript@99.999.99999
+74 info postuninstall coffeescript@99.999.99999
+75 error coffeescript@99.999.99999 preinstall: `node super-evil-script-omg-for-reals.js`
+75 error Exit status 1
+76 error Failed at the coffeescript@99.999.99999 preinstall script.
+76 error This is most likely a problem with the coffeescript package,
+76 error not with npm itself.
+76 error Tell the author that this fails on your system:
+76 error     node super-evil-script-omg-for-reals.js
+76 error You can get their info via:
+76 error     npm owner ls coffeescript
+76 error There is likely additional logging output above.
+77 error System Windows_NT 6.1.7601
+78 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "coffeescript"
+79 error cwd C:\Users\Margosha\WebstormProjects\turtle
+80 error node -v v0.10.31
+81 error npm -v 1.4.23
+82 error code ELIFECYCLE
+83 verbose exit [ 1, true ]

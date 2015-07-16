@@ -1,0 +1,69 @@
+<script src="lib/qunit.js"></script>
+<link href="lib/qunit.css" rel="stylesheet">
+<script src="lib/jquery.js"></script>
+<script src="../jquery-turtle.js"></script>
+<body>
+<div id="qunit"></div>
+<script>
+eval($.turtle());
+module("Label test.");
+function rounded(obj) {
+  var result;
+  if ($.isNumeric(obj)) {
+    return Math.round(obj);
+  }
+  if ($.isArray(obj)) {
+    result = [];
+    for (var j = 0; j < obj.length; ++j) {
+      result.push(rounded(obj[j]));
+    }
+    return result;
+  }
+  if ($.isObject(obj)) {
+    result = {};
+    for (var k in obj) {
+      result[k] = rounded(obj[k]);
+      return result;
+    }
+  }
+}
+asyncTest("Outputs some labels.", function() {
+  speed(10);
+  label('small');
+  fd(50)
+  done(function() {
+    css('fontSize', 100);
+    label('big');
+    bk(100)
+    rt(90);
+    label('mid', { fontSize: 50, class: "mid" });
+    fd(150)
+    label('giant', 150);
+    label('upside down', { turtleRotation: 180, fontSize: 8, id: 'upside' });
+    label('bottomleft', 'bottom-left');
+    done(function() {
+      ok($('label:contains(small)').width() < $('label:contains(mid)').width());
+      ok($('label:contains(mid)').width() < $('label:contains(big)').width());
+      ok($('label:contains(big)').width() < $('label:contains(giant)').width());
+      ok($('label:contains(upside)').width() <$('label:contains(mid)').width());
+      equal($('.mid').length, 1);
+      equal($('.mid').text(), 'mid');
+      equal($('#upside').text(), 'upside down');
+      deepEqual(rounded($('label:contains(small)').getxy()), [0, 0]);
+      deepEqual(rounded($('label:contains(big)').getxy()), [0, 50]);
+      deepEqual(rounded($('label:contains(mid)').getxy()), [0, -50]);
+      deepEqual(rounded($('label:contains(giant)').getxy()), [150, -50]);
+      ok($('label:contains(bottomleft)').getxy()[0] < -50);
+      ok($('label:contains(bottomleft)').getxy()[1] < -100);
+      equal(rounded($('label:contains(small)').direction()), 0);
+      equal(rounded($('label:contains(big)').direction()), 0);
+      equal(rounded($('label:contains(mid)').direction()), 90);
+      equal(rounded($('label:contains(giant)').direction()), 90);
+      equal(rounded($('label:contains(bottomleft)').direction()), 0);
+      equal(direction(), 90);
+      equal(rounded($('label:contains(upside down)').direction()), 180);
+      start();
+    });
+  });
+});
+</script>

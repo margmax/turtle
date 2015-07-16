@@ -1,0 +1,50 @@
+<script src="lib/qunit.js"></script>
+<link href="lib/qunit.css" rel="stylesheet">
+<script src="lib/jquery.js"></script>
+<script src="../jquery-turtle.js"></script>
+<body>
+<div id="qunit"></div>
+<script>
+eval($.turtle());
+module("Movexy test.");
+asyncTest("Draws does a few movexy displacements.", function() {
+  speed(10);
+  pen(red);
+  movexy(100, 50);
+  done(function() {
+    equal(getxy()[0], 100);
+    equal(getxy()[1], 50);
+    equal(direction(), 0);
+    ok(touches(red));
+    speed(Infinity);
+    pen(null);
+    movexy(-50, -25);
+    ok(touches(red));
+    ok(!touches(blue));
+    equal(getxy()[0], 50);
+    equal(getxy()[1], 25);
+    equal(direction(), 0);
+    movexy(-100, -50);
+    ok(!touches(red));
+    equal(getxy()[0], -50);
+    equal(getxy()[1], -25);
+    equal(direction(), 0);
+    moveto(100, 50);
+    ok(touches(red));
+    moveto(50, 100);
+    ok(!touches(red));
+    pen(blue);
+    movexy(50, -100);
+    pen(null);
+    ok(touches(blue));
+    ok(!touches(red));
+    jumpto(80, 40);
+    ok(touches(blue));
+    ok(touches(red));
+    start();
+  });
+});
+</script>
+
+
+
