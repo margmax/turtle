@@ -6,21 +6,20 @@
     <link rel="stylesheet" href="css/style.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="jquery-turtle.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
 </head>
 <body>
 <div class="container">
     <p>Turtle</p>
     <div class="row">
-        <div class=" col col-lg-7 turt"  >
+        <div class=" col col-lg-7 turt">
             <samp class="turtlefield">
                 <samp id="field">
                     <canvas width="40" height="48" class="turtle" id="turtle" style="opacity: 0.67; width: 20px; height: 24px; display: table; transform: none; z-index: 1;">
                     </canvas>
                 </samp>
             </samp>
+
         </div>
 
         <div class="col col-lg-2" id="commands" >
@@ -76,6 +75,10 @@
         });
         $("ul, li").disableSelection();
     });
+</script>
+<script type="text/javascript">
+eval($.turtle());
+    $('#turtle').pen('red').rt(90).fd(100).rt(90).fd(100);
 </script>
 </body>
 <script src="js/bootstrap.js"></script>
