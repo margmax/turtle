@@ -64,7 +64,9 @@ canvas {
     font-size: x-large;
     color:white;
 }
-input[type="number"]{
-
+.icon{
+    width: 45px;
+    height: 45px;
+    opacity: 0.5;
 }
 
