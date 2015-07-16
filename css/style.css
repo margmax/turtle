@@ -1,4 +1,5 @@
 .commands{
+    padding-top: 20px;
     background: #444 !important;
     border: 1px solid #444 !important;
     font-size: small !important;
@@ -19,26 +20,27 @@
     height: 90%;
     margin: 5px;
     border-radius:8px !important;
+    background: #555;
 }
 
 #_turtlefield {
     display: inline-block;
     width: 50%;
     height: 100%;
-    z-index: -1;
+    z-index: 100;
     font-family: inherit;
     overflow: hidden;
 }
 
 canvas {
-    z-index: -1;
+    z-index: 100;
     opacity: 0.67;
     display: table;
     transform: none;
 }
 
 .turt{
-    background: #999999;
+    background: #ECEAEA;
     border-radius:8px ;
 }
 
