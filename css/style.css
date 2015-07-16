@@ -23,11 +23,11 @@
     background: #555;
 }
 
-#turtlefield {
+.turtlefield {
     display: inline-block;
     width: 50%;
     height: 100%;
-    z-index: 100;
+    z-index: 5 !important;
     font-family: inherit;
     overflow: hidden;
 }
