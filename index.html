@@ -35,9 +35,15 @@
             <div class="ui-widget ui-corner-all ui-state-error my-draggable commands move" data-command="move">
                 Двигаться на <input type="number" class="form-control"/> шагов.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeat" data-command="repeat">
-                Повторить <input type="number" class="form-control"/> раз.
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeatBegin" data-command="repeatBegin">
+                Повторить <input type="number" class="form-control"/> раз. Начало цикла.
             </div>
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeatEnd" data-command="repeatEnd">
+                Конец цикла.
+            </div>
+            <div>
+<input type="range" class="speedRange" min="0.5" max="50" step="1" value="0">
+</div>
             <div >
                 <img class="icon play" src="img/play.png" style="width: 30px; height: 30px;"/>
                 <img class="icon pause" src="img/pause.png"/>
@@ -79,49 +85,131 @@
             revert: 'invalid'
         });
         $("ul, li").disableSelection();
-
+        var arr = new Array();
+        var arrArg = new Array();
+        var arrArgHelp = new Array();
+        var j = 0, jPause = 0; bPause = true, bCicle = false;
+        var i, begin, end;
         $(".play").on('click',function(){
+            begin = end = 1;
+            i = 0;
             $('#sortable>.commands').each(function(){
-                var com=$(this).data("command");
-                if(com=='up'){
-                    $('#turtle').pen('null');
-                    console.log("1");
-                    $('#turtle').delay( 100000 );
+                arr[i] = $(this).data("command");
+                if (arr[i] == 'rotate' || arr[i] == 'move') {
+                    arrArg[i] = $(this).context.firstElementChild.valueAsNumber;
+                    arrArgHelp[i] = 0;
                 }
-                if(com=='down'){
-                    $('#turtle').pen('blue');
-                    console.log("/2");
+                if (arr[i] == 'repeatBegin') {
+                    arrArg[i] = $(this).context.firstElementChild.valueAsNumber;
+                    arrArgHelp[i] = begin;
+                    //console.log("-----------------------" + arrArg[i][0] + "  " + arrArg[i][1]);
+                    begin++;
                 }
-                if(com=='rotate'){
-                    $('#turtle').rt($(this).context.firstElementChild.valueAsNumber);
-                    console.log("3");
+                if (arr[i] == 'repeatEnd') {
+                    arrArg[i] = 0;
+                    arrArgHelp[i] = end;
+                    end++;
+                } 
+                if (arr[i] == 'up' || arr[i] == 'down') {
+                    arrArg[i] = 0;
+                    arrArgHelp[i] = 0;
                 }
-                if(com=='move'){
-                    $('#turtle').fd($(this).context.firstElementChild.valueAsNumber);
-                    console.log("4");
-                }
-                if(com=='repeat'){
+                i++;
+            });
+            //SPEED; ///////////////////////////////////////////////////////////////////////////////////////////////////////
+            //for (var j=0; j<arr.length; j++) {
+                bPause = true;
+                var paint = function() {
+                    if (bPause == false) {
+                        return;
+                    }
+                    j = jPause;
 
-                }
-            })
+                    if(arr[j]=='up'){
+                        $('#turtle').pen('null');
+                        console.log("1");
+                    }
+                    if(arr[j]=='down'){
+                        $('#turtle').pen('blue');
+                        console.log("2");
+                    }
+                    if(arr[j]=='rotate'){
+                        $('#turtle').rt(arrArg[j]);
+                        console.log("3");
+                    }
+                    if(arr[j]=='move'){
+                        $('#turtle').fd(arrArg[j]);
+                        console.log("4");
+                    }
+                    if(arr[j]=='repeatBegin'){
+                        bCicle = true;
+                        //console.log(arrArg[j]);
+                        console.log("-----------------------" + arrArgHelp[j]);
+                        var t = j, arg;
+                        if (arrArgHelp[t] > 1) {
+                            arg = arrArg[t] - 1;
+                        } else {
+                            arg = arrArg[t];
+                        }
+                        for (var a=0; a<arg; a++) {
+                            if (bPause == false) continue;
+                            var m=j+1;
+                            while (arrArgHelp[m] != arrArgHelp[t]) {
+                                console.log("-----------------------");
+                                jPause=m;
+                                paint();
+                                m++;
+                            }
+                            j=t;
+                            jPause=t;
+                        }
+                        jPause=m;
+                        if (arrArgHelp[m] == 1){
+                            bCicle = false;
+                        }
+                       
+                    }
+
+                    if (bCicle == false)
+                    {
+                        jPause++;
+                        if(jPause == arr.length) {
+                        j = 0;
+                        jPause = 0;
+                        return;    
+                    }
+                        setTimeout(paint, 1000);
+                    }
+                };
+                paint();
+
+                
+            //}
+                
         });
 
         $(".pause").on('click',function(){
-
+            bPause = false;
+            jPause = j+1;
+            j = 0;
         });
 
         $(".stop").on('click',function(){
+            console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
             cg();
-            home();
+            $('#turtle').home();
             $('#sortable>.commands').remove();
+            bPause = false;
+            j = 0;
+            jPause = 0;
             });
+        $('.speedRange').on('change',function(){ speed($('.speedRange').val());});
 
     });
 </script>
 
 <script type="text/javascript">
 eval($.turtle());
-    $('#turtle').pen('red lineWidth 5 lineCap square').rt(90).fd(100).rt(90).fd(100);
 </script>
 </body>
 <script src="js/bootstrap.js"></script>
