@@ -23,10 +23,10 @@
         </div>
 
         <div class="col col-lg-2" id="commands" >
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands up" data-command="up">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands non up" data-command="up">
                 Поднять хвост.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands down" data-command="down">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands non down" data-command="down">
                 Опустить хвост.
             </div>
             <div class="ui-widget ui-corner-all ui-state-error my-draggable commands rotate" data-command="rotate">
@@ -38,7 +38,7 @@
             <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeatBegin" data-command="repeatBegin">
                 Повторить <input type="number" class="form-control"/> раз. Начало цикла.
             </div>
-            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands repeatEnd" data-command="repeatEnd">
+            <div class="ui-widget ui-corner-all ui-state-error my-draggable commands non repeatEnd" data-command="repeatEnd">
                 Конец цикла.
             </div>
             <div>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="col col-lg-2" id="comandslist" style="width: 260px;">
-            <div id="sortable">
+            <div class="sortable">
                 Список команд:
             </div>
 
@@ -63,7 +63,7 @@
 </div>
 <script type="text/javascript">
     $(function() {
-        $("#sortable").sortable({
+        $(".sortable").sortable({
             revert: true,
             stop: function(event, ui) {
                 if(!ui.item.data('tag') && !ui.item.data('handle')) {
@@ -80,7 +80,7 @@
             }
         });
         $(".my-draggable").draggable({
-            connectToSortable: '#sortable',
+            connectToSortable: '.sortable',
             helper: 'clone',
             revert: 'invalid'
         });
